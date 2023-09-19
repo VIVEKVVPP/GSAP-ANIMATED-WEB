@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Animated Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        #background{
+            padding: 25px 40px;
+            width: 100%;
+            height: 100%;
+            background-color: #e3e1e1;
+        }
+        #background nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+        nav #links a{
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: capitalize;
+            margin-left: 130px;
+        }
+        nav #links a:nth-child(1){
+            margin-left: 0px;
+        }
+
+        nav #icons i{
+            display: inline-block;
+            margin-left: 30px;
+        }
+        nav #icons i:nth-child(1){
+            margin-left: 0px;
+        }
+        #main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 70%;
+        }
+        #main #image{
+            position: relative;
+            margin-top: 15px;
+            width: 100%;
+            height: 93%;
+            background-image: url(https://images.unsplash.com/photo-1516575150278-77136aed6920?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+            background-size: cover;
+            background-position: center;
+        }
+        #overlay{
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            animation: anim 1.5s cubic-bezier(0.19, 1, 0.22, 1)  both;
+            background-color: rgb(246,246,246);
+        }
+        @keyframes anim{
+            0%{
+                width: 0%;
+                left: 0;
+            }
+            50%{
+                width: 100%;
+                left: 0%;
+            }
+            100%{
+                width: 0%;
+                left: 100%;
+            }
+
+        }
+        #footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            width: 95%;
+            height: 60px;
+            bottom: 30px;
+        }
+        #footer #left i{
+            margin-left: 20px;
+        }
+        #footer #left i:nth-child(1){
+            margin-left: 0px;
+        }
+        #footer #right i{
+            margin-left: 20px;
+        }
+        #footer #right i:nth-child(1){
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="background">
+        <nav>
+            <h2 class="st">Union</h2>
+            <div id="links">
+                <a class="st" href="#">about</a>
+                <a class="st" href="#">contact</a>
+                <a class="st" href="#">pricing</a>
+                <a class="st"  href="#">home</a>
+            </div>
+            <div id="icons">
+                <i class="ri-twitter-fill st"></i>
+                <i class="ri-facebook-circle-fill st"></i>
+            </div>
+
+        </nav>
+        <div id="main">
+            <h1>Featured Element</h1>
+            <div id="image">
+                <div id="overlay"></div>
+            </div>
+            
+        </div>
+        <div id="footer">
+            <div id="left">
+                <i class="st ri-facebook-circle-fill"></i>
+                <i class="st ri-twitter-fill"></i>
+                <i class="st ri-instagram-fill"></i>
+            </div>
+            <div id="right">
+                <i class="st ri-bubble-chart-fill"></i>
+                <i class="st ri-award-fill"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var tl= gsap.timeline();
+
+        tl.from(".st", {
+            stagger: .2,
+            duration: 1,
+            x: 30,
+            opacity:0,
+            ease: "Expo.easeInOut"
+        })
+        .from("#main h1", {
+            y: 30,
+            duration: 1,
+            opacity:0,
+            ease: "Expo.easeInOut"
+        }, '-=2')    
+    </script>
+</body>
+</html>
